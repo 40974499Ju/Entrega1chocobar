@@ -1,38 +1,25 @@
-import NavBar from './componentes/NavBar/NavBar';
-import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import home from './componentes/Home/home';
-import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
-import Item from './componentes/Item/Item';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailContainer";
+import NavBar from "./componentes/NavBar/NavBar";
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
-      <NavBar/>
+        <NavBar/>
         <Routes>
           <Route path="/" element={<ItemListContainer/>} />
-          <Route path="/categoria/:idCategoria" element={<ItemListContainer/>} />
-          <Route path="/item/:idItem" element={<ItemDetailContainer/>} />
-
-        </Routes >
-      </BrowserRouter >
-
-
-
-
+          <Route path="/categoria/:idCategoria" element={<ItemListContainer/>}  />
+          <Route path="/item/:idItem" element={<ItemDetailContainer/>}  />
+          <Route path="/cart" element={<h2>En breve tendras tu carrito rata de dos patas!!</h2>} />
+        </Routes>
+      </BrowserRouter>
       
 
-     
-    </div >
+      
+    </div>
   )
-
 }
-
-
-
-
-
-
 
 export default App

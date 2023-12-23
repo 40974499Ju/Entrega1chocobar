@@ -14,6 +14,14 @@ const ItemListContainer = () => {
     .then(respuesta => setProductos(respuesta))
 
   }, [idCategoria])
+
+  return (
+    <div>
+      <h2>Mis Productos</h2>
+      <itemList productos = {productos} />
+    </div>
+  )
 }
+
 
 export default ItemListContainer
