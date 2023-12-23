@@ -7,13 +7,13 @@ const NavBar = () => {
             <h1>Vestidos online</h1>
         </Link>
 
-        <nav>
+        <nav className="navj">
             <ul>
-                <li>
+                <li className="navj">
                     <NavLink to="/categoria/2">Vestidos largos</NavLink>
                 </li>
 
-                <li>
+                <li className="navj">
                     <NavLink to="/categoria/3">Vestidos cortos</NavLink>
                 </li>
             </ul>
