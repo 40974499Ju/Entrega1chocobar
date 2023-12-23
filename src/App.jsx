@@ -11,18 +11,25 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-      <Routes>
+      <NavBar/>
+        <Routes>
+          <Route path="/sastreria/:id" element={<sastreria/>} />
+          <Route path="/vestidoCivil" element={<vestidoCilvil/>}/>
+          <Route path="/vestidoIglesia" element={<vestidoIglesia/>} />
+          <Route path="/vestidosDamaDeHonor" element={<vestidoDamaDeHonor/>} />
+          <Route path="/" element={<home/>} />
+          
 
-      </Routes>
-      </BrowserRouter>
+        </Routes >
+      </BrowserRouter >
+
+
 
 
       
 
-      <NavBar />
-
       <ItemListContainer greeting="Hola Mundo" />
-    </div>
+    </div >
   )
 
 }
