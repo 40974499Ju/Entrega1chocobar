@@ -10,4 +10,12 @@ li {
     margin: 15px;
     cursor: pointer;
     color: pink;
-} 
+    padding: 10px 30px;
+    display: inline-block;
+    text-decoration: none;
+}   
+
+h1 {
+    text-decoration:  none;
+    color: pink;
+}
