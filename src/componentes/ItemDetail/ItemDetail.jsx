@@ -1,8 +1,9 @@
 import React from 'react'
+import './ItemDetail.css'
 
 export const ItemDetail = () => {
   return (
-    <div>
+    <div className='contenedorItem'>
         <h2>Nombre:</h2>
         <p>Precio</p>
         <p>ID:</p>
@@ -12,4 +13,4 @@ export const ItemDetail = () => {
     </div>
   )
 }
-export default ItemDetail
+export default Item
