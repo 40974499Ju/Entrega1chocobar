@@ -1,29 +1,24 @@
-import React from 'react'
-import CarWidget from '../CarWidget/CarWidget';
-import './NavBar.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link,NavLink } from "react-router-dom";
+
 const NavBar = () => {
   return (
     <header>
-      <Link to="/">
+        <Link to="/">
+            <h1>Vestidos online</h1>
+        </Link>
 
-        <h1>Vestidos online</h1>
-      </Link>
+        <nav>
+            <ul>
+                <li>
+                    <NavLink to="/categoria/2">Lacteos</NavLink>
+                </li>
 
-      <nav>
-        <ul>
-          <li> 
-            <NavLink to="/">Home</NavLink> 
+                <li>
+                    <NavLink to="/categoria/3">Almacen</NavLink>
+                </li>
+            </ul>
+        </nav>
 
-          </li>
-          <li> <NavLink to="/Vestidoscivil" >Vestidos civil</NavLink> </li>
-          <li> <NavLink to="/vestidosiglesia" >vestidos iglesia</NavLink> </li>
-          <li> <NavLink to="/vestidos damas de honor">vestidos damas de honor</NavLink> </li>
-          <li> <NavLink to="/sastreria">Sastreria</NavLink> </li>
-        </ul>
-      </nav>
-
-      <CarWidget />
     </header>
   )
 }
