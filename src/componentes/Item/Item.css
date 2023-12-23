@@ -13,11 +13,11 @@
     width: 150px;
 }
 
-.cardProducto  button {
+.btn {
 background-color: pink;
 color: #fafafa;
 border-radius: 10px;
 border: none;
 padding: 10px  20px;
-cursor: pointer;
+text-decoration: none;
 }
