@@ -1,24 +1,17 @@
-import { useState } from 'react'
 import NavBar from './componentes/NavBar/NavBar';
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import sastreria from './componentes/sastreria/sastreria';
-import vestidoCilvil from './componentes/vestidoCivil/vestidoCilvil';
-import vestidoIglesia from './componentes/vestidoIglesia/vestidoIglesia';
-import vestidoDamaDeHonor from './componentes/vestidosDamaDeHonor/vestidoDamaDeHonor';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import home from './componentes/Home/home';
+import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
 const App = () => {
   return (
     <div>
       <BrowserRouter>
       <NavBar/>
         <Routes>
-          <Route path="/sastreria/:id" element={<sastreria/>} />
-          <Route path="/vestidoCivil" element={<vestidoCilvil/>}/>
-          <Route path="/vestidoIglesia" element={<vestidoIglesia/>} />
-          <Route path="/vestidosDamaDeHonor" element={<vestidoDamaDeHonor/>} />
-          <Route path="/" element={<home/>} />
-          
+          <Route path="/" element={<ItemListContainer/>} />
+          <Route path="/categoria/id:categoria" element={<ItemListContainer/>} />
+          <Route path="/item/:idItem" element={<ItemDetailContainer/>} />
 
         </Routes >
       </BrowserRouter >
