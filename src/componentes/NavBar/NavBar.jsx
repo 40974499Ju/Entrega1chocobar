@@ -7,9 +7,9 @@ const NavBar = () => {
             <h1>Vestidos online</h1>
         </Link>
 
-        <nav className="navj">
+        <nav>
             <ul>
-                <li className="navj">
+                <li>
                     <NavLink to="/categoria/2">Vestidos largos</NavLink>
                 </li>
 
