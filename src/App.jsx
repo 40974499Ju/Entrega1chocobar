@@ -2,12 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailContainer";
 import NavBar from "./componentes/NavBar/NavBar";
+import { CarritoProvider } from "./contex/carritoContex";
 
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
+      <CarritoProvider>
         <NavBar />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
@@ -15,6 +17,7 @@ const App = () => {
           <Route path="/item/:idItem" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<h2>¡Gracias por tu compra!</h2>} />
         </Routes>
+        </CarritoProvider>
       </BrowserRouter>
 
 

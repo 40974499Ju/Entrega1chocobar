@@ -13,7 +13,7 @@ export const CarritoContex = createContext({
 
 //el valor inicial es un objeto, con la propiedad carrito, que es una array vacio, el total de la compra y la cantidad del total del carrito 
 
-export const CarritoProvider = () => {
+export const CarritoProvider = ({ children }) => {
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
     const [cantidadTotal, setCatidadTotal] = useState(0);
@@ -63,4 +63,13 @@ export const CarritoProvider = () => {
         setCatidadTotal(0);
         setTotal(0);
     }
+
+    return (
+        <CarritoContex.Provider value={{ carrito, total, cantidadTotal, agregarAlCarrito, eliminarProducto, vaciarCarrito }}>
+            {children}
+
+        </CarritoContex.Provider>
+    )
 }
+
+//en el value enviamos el valor actual del carrito, los items, el total de la compra y las funciones de agregar, eliminar y vaciar carrito. 
