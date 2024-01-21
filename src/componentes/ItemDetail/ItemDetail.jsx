@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Contador from '../contador/contador';
 import { Link } from 'react-router-dom';
 import './ItemDetail.css';
+import { CarritoContex } from '../../contex/carritoContex';
+import { useContext } from 'react';
 
 const ItemDetail = ({id, nombre, stock, precio, img}) => {
   
