@@ -1,77 +1,77 @@
-//1- importar useStates y createContex que me permite crear un contexto que almanecera toda la logica de mi carrillo de compras
+//1) Voy a importar useState y createContext que me permite crear un contexto que almacenará toda la logica de mi carrillo de compras. 
 
 import { useState, createContext } from "react";
-import { getProductosPorCategoria } from "../asyncmock";
 
-//2-creamos el contex:
+//2)Creamos el context: 
 
-export const CarritoContex = createContext({
-    carrito: [],
-    total: 0,
+export const CarritoContext = createContext({
+    carrito: [], 
+    total: 0, 
     cantidadTotal: 0
 })
 
-//el valor inicial es un objeto, con la propiedad carrito, que es una array vacio, el total de la compra y la cantidad del total del carrito 
+//El valor inicial es un objeto, con la propiedad carrito, que es una array vacio, el total de la compra, y la cantidad total de productos. 
 
-export const CarritoProvider = ({ children }) => {
+export const CarritoProvider = ({children}) => {
+    //Creamos los estados: 
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
-    const [cantidadTotal, setCatidadTotal] = useState(0);
+    const [cantidadTotal, setCantidadTotal] = useState(0);
 
-    console.log(carrito);
-    console.log("cantidad items:",cantidadTotal);
-    console.log("precio total de la compra:", total);
+    //Verificamos por consola:  (después lo borramos)
+    console.log(carrito); 
+    console.log("Cantidad Items: ", cantidadTotal );
+    console.log("Precio total de la compra: ", total);
 
-    //////////////////////////////////////////////////////////////////////////
-    //agremos algunas funciones para la logica del carrito 
+    ///////////////////////////////////////////
+
+    //Agregamos algunas funciones para lo lógica del carrito: 
 
     const agregarAlCarrito = (item, cantidad) => {
-        const productoExistente = carrito.find(prod => prod.item.id === item.id);
+        const productoExistente = carrito.find(prod => prod.item.id === item.id); 
 
-        if (!productoExistente) {
-            setCarrito(prev => [...prev, { item, cantidad }]);
-            setCatidadTotal(prev => prev + cantidad);
-            setTotal(prev => prev + (item.precio * cantidad));
+        if(!productoExistente) {
+            setCarrito(prev => [...prev, {item, cantidad}]);
+            setCantidadTotal(prev => prev + cantidad);
+            setTotal( prev => prev + (item.precio * cantidad)); 
+            //La sintaxis: prev => [...prev, {item, cantidad}] se utiliza para crear un nuevo array a partir del estado anterior del carrito y agregar un nuevo objeto que representa el producto agregado. 
         } else {
-            const carritoActualizado = carrito.map(prod => {
-                if (prod.item.id === item.id) {
-                    return { ...prod, cantidad: prod.cantidad + cantidad };
-                } else {
-                    return prod;
+            const carritoActualizado = carrito.map( prod => {
+                if(prod.item.id === item.id) {
+                    return {...prod, cantidad: prod.cantidad + cantidad};
+                }else {
+                    return prod; 
                 }
             })
             setCarrito(carritoActualizado);
-            setCatidadTotal(prev => prev + cantidad);
-            setTotal(prev => prev + (item.precio * cantidad));
+            setCantidadTotal(prev => prev + cantidad);
+            setTotal( prev => prev + (item.precio * cantidad)); 
         }
-
     }
 
-    //funcion para elimanar un producto:
+    //Funcion para eliminar un producto: 
 
     const eliminarProducto = (id) => {
-        const prodcutoEliminado = carrito.find(prod.item.id === id);
+        const productoEliminado = carrito.find(prod => prod.item.id === id);
         const carritoActualizado = carrito.filter(prod => prod.item.id !== id);
 
-
         setCarrito(carritoActualizado);
-        setCatidadTotal(prev => prev - prodcutoEliminado.cantidad);
-        setTotal(prev => prev - (prodcutoEliminado.item.precio * prodcutoEliminado.cantidad));
+        setCantidadTotal(prev => prev - productoEliminado.cantidad);
+        setTotal(prev => prev - (productoEliminado.item.precio * productoEliminado.cantidad));
     }
 
-    //funcion para vaciar el carrito
-    const vaciarCarrito = () => {
+    //Funció para vaciar el carrito: 
+     const vaciarCarrito =  () => {
         setCarrito([]);
-        setCatidadTotal(0);
+        setCantidadTotal(0);
         setTotal(0);
-    }
+     }
 
-    return (
-        <CarritoContex.Provider value={{ carrito, total, cantidadTotal, agregarAlCarrito, eliminarProducto, vaciarCarrito }}>
+     return (
+        <CarritoContext.Provider value={{carrito, total, cantidadTotal, agregarAlCarrito, eliminarProducto, vaciarCarrito}}>
             {children}
-
-        </CarritoContex.Provider>
-    )
+        </CarritoContext.Provider>
+     )
 }
 
 //en el value enviamos el valor actual del carrito, los items, el total de la compra y las funciones de agregar, eliminar y vaciar carrito. 
