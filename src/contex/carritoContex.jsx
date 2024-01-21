@@ -9,3 +9,11 @@ export const CarritoContex = createContext({
     total: 0,
     cantidadTotal: 0
 })
+
+//el valor inicial es un objeto, con la propiedad carrito, que es una array vacio, el total de la compra y la cantidad del total del carrito 
+
+export const CarritoProvider = () => {
+    const [carrito, setCarrito] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [cantidadTotal, setCatidadTotal] = useState(0);
+}
