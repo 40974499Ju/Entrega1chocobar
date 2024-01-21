@@ -9,11 +9,17 @@ const ItemDetail = ({id, nombre, stock, precio, img}) => {
   
   const [agregarCantidad, setAgregarCantidad]  = useState(0);
 
-  
+  //cambios de la clase 6
+
+  const {agregarAlCarrito} = useContext(CarritoContex);
+
   const manejadorCantidad = (cantidad) => {
     setAgregarCantidad(cantidad);
-    console.log("Productos agregados: " + cantidad);
+    //console.log("Productos agregados: " + cantidad);
   }
+
+  const item = {id, nombre, precio};
+  agregarAlCarrito(item, cantidad);
 
   return (
     <div className='contenedorItem'>
