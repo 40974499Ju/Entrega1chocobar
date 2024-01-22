@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailContainer";
 import NavBar from "./componentes/NavBar/NavBar";
-import { CarritoProvider } from "./contex/carritoContex";
+import { CarritoProvider } from "./context/carritoContex";
 
 
 const App = () => {
