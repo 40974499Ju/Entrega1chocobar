@@ -4,12 +4,13 @@ import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailCon
 import NavBar from "./componentes/NavBar/NavBar";
 import { CarritoProvider } from "./context/CarritoContext";
 import Cart from "./componentes/Cart/Cart";
-
-
+import Productos from "./componentes/Productos/Productos";
+import Formulario from "./componentes/Formulario/formulario";
 const App = () => {
   return (
     <div>
       <BrowserRouter>
+       
         <CarritoProvider>
           <NavBar/>
           <Routes>
@@ -21,6 +22,7 @@ const App = () => {
 
           </Routes>
         </CarritoProvider>
+       
       </BrowserRouter>
       
 
