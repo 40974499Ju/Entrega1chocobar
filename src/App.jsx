@@ -24,6 +24,9 @@ const App = () => {
         </CarritoProvider>
        
       </BrowserRouter>
+      <Formulario/>
+      <Productos/>
+      
       
 
       
