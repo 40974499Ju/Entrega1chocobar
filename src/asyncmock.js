@@ -11,10 +11,11 @@ const productos = [
     { id: "10", nombre: "Dress Mariana", stock: 10, precio: 100000, img: "../img/mariana.jpg", idCat: "2" },
     { id: "11", nombre: "Dress Merida", stock: 10, precio: 93000, img: "../img/merida.jpg", idCat: "3" },
     { id: "12", nombre: "Dress Gabriela", stock: 10, precio: 197000, img: "../img/gabriela.jpg", idCat: "3" },
-    { id: "13", nombre: "Dress Gladys", stock: 10, precio: 86000, img: "../img/gladys.jpg", idCat: "3" },
-    { id: "14", nombre: "Dress Maria", stock: 10, precio: 79000, img: "../img/maria.jpg", idCat: "3" },
-
-
+    { id: "13", nombre: "Dress Gladys", stock: 10, precio: 86000, img: "../img/gladys.jpg", idCat: "2" },
+    { id: "14", nombre: "Dress Maria", stock: 10, precio: 79000, img: "../img/maria2.jpg", idCat: "2" },
+    { id: "15", nombre: "Dress Ariel", stock: 10, precio: 110000, img: "../img/ariel.jpg", idCat: "2" },
+    { id: "16", nombre: "Dress Florencia", stock: 10, precio: 94000, img: "../img/florencia2.jpg", idCat: "3" },
+    { id: "17", nombre: "Dress Amalia", stock: 10, precio: 132000, img: "../img/amalia.jpg", idCat: "3" },
 ]
 
 
