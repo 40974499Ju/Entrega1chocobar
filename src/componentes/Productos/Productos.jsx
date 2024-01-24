@@ -7,28 +7,28 @@ const Productos = () => {
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
-        
-        const misProductos = query(collection(db, "productos"));
+
+        const misProductos = query(collection(db, "inventario"));
 
         getDocs(misProductos)
             .then(respuesta => {
                 setProductos(respuesta.docs.map(doc => ({ id: doc.id, ...doc.data() })))
-                
+
             })
     }, [productos])
 
-   
 
-    const descontarStock = async(producto) => {
-        const productoRef = doc(db, "productos", producto.id); 
-        const nuevoStock = producto.stock - 1; 
 
-        await updateDoc(productoRef, {stock: nuevoStock});
+    const descontarStock = async (producto) => {
+        const productoRef = doc(db, "inventario", producto.id);
+        const nuevoStock = producto.stock - 1;
 
-        
-        const productosActualizados = productos.map( (p) => {
-            if(p.id === producto.id) {
-                return {...p, stock: nuevoStock};
+        await updateDoc(productoRef, { stock: nuevoStock });
+
+
+        const productosActualizados = productos.map((p) => {
+            if (p.id === producto.id) {
+                return { ...p, stock: nuevoStock };
             }
             return p;
         })
@@ -46,7 +46,7 @@ const Productos = () => {
                             <h3> {producto.nombre} </h3>
                             <p> Precio: {producto.precio} </p>
                             <p> Stock: {producto.stock} </p>
-                            <button onClick={() => descontarStock(producto) }> Comprar </button>
+                            <button onClick={() => descontarStock(producto)}> Comprar </button>
                         </div>
                     ))
 

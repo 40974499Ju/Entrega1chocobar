@@ -1,20 +1,17 @@
+
 import { initializeApp } from "firebase/app";
-import {getFirestore} from "firebase/firestore";
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDcCea01924p9z8u3IL-IILWW6dbonBET4",
-  authDomain: "vestidosonline-2360a.firebaseapp.com",
-  projectId: "vestidosonline-2360a",
-  storageBucket: "vestidosonline-2360a.appspot.com",
-  messagingSenderId: "154364978931",
-  appId: "1:154364978931:web:536e6707aaa1839ddb7986"
+  apiKey: "AIzaSyAK9E94AL4qMpwEN1oD9Bl4byWxqZB7OWg",
+  authDomain: "palaciodelanovia-98472.firebaseapp.com",
+  projectId: "palaciodelanovia-98472",
+  storageBucket: "palaciodelanovia-98472.appspot.com",
+  messagingSenderId: "655032815212",
+  appId: "1:655032815212:web:d60c288cb695e744cfd249",
+  measurementId: "G-VHVM8BHS8R"
 };
 
 
 const app = initializeApp(firebaseConfig);
-
-export const db = getFirestore(app);
+export const db = getFirestore(app)
