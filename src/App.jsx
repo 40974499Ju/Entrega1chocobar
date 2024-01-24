@@ -4,13 +4,12 @@ import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailCon
 import NavBar from "./componentes/NavBar/NavBar";
 import { CarritoProvider } from "./context/CarritoContext";
 import Cart from "./componentes/Cart/Cart";
-import Productos from "./componentes/Productos/Productos";
-import Formulario from "./componentes/Formulario/formulario";
+import Checkout from "./componentes/Checkout/Checkout";
+
 const App = () => {
   return (
     <div>
       <BrowserRouter>
-       
         <CarritoProvider>
           <NavBar/>
           <Routes>
@@ -18,15 +17,11 @@ const App = () => {
             <Route path="/categoria/:idCategoria" element={<ItemListContainer/>}  />
             <Route path="/item/:idItem" element={<ItemDetailContainer/>}  />
             <Route path="/cart" element={<Cart/>} />
+            <Route path="/checkout" element={<Checkout/>} />
             <Route path="*" element={<h2>Sitio en construcción</h2>} />
-
           </Routes>
         </CarritoProvider>
-       
       </BrowserRouter>
-      <Formulario/>
-      <Productos/>
-      
       
 
       
