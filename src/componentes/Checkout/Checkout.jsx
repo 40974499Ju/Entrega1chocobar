@@ -18,19 +18,19 @@ const Checkout = () => {
     const manejadorSubmit = (event) => {
         event.preventDefault();
 
-        //Verificamos que todos los campos esten completos 
+
         if (!nombre || !apellido || !telefono || !email || !emailConfimacion) {
-            setError("Por favor completa todos los campos o moriras!");
+            setError("Por favor completa todos los campo!");
             return;
         }
 
-        //Validamos que el campo del email coincida: 
+
         if (email !== emailConfimacion) {
-            setError("Los emails no coinciden, rata de dos patas!!");
+            setError("Los emails no coinciden!!");
             return;
         }
 
-        //Creamos un objeto con todos los datos de la orden de compra: 
+
 
         const orden = {
             items: carrito.map(producto => ({
@@ -46,24 +46,23 @@ const Checkout = () => {
             email
         }
 
-        //Vamos a modificar el código para que ejecute varias promesas en parelalo, por un lado que pueda crear la orden de compra y por el otro que actualice el stock: 
 
         Promise.all(
             orden.items.map(async (productoOrden) => {
-                //Por cada producto obtengo una referencia y a partir de esa referencia obtengo el DOC: 
+
                 const productoRef = doc(db, "inventario", productoOrden.id);
                 const productoDoc = await getDoc(productoRef);
                 const stockActual = productoDoc.data().stock;
-                //recordemos, data() me permite obtener los datos del documento. 
+
 
                 await updateDoc(productoRef, {
                     stock: stockActual - productoOrden.cantidad
                 })
 
-                //Modifico el stock y subo la info actualizada. 
+
             })
         )
-            //Guardamos en la base de datos la orden: 
+
             .then(() => {
                 addDoc(collection(db, "ordenes"), orden)
                     .then(docRef => {
