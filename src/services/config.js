@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAK9E94AL4qMpwEN1oD9Bl4byWxqZB7OWg",
+  apiKey: import.meta.env.VITE_API_KEY_FIREBASE_CONFIG,
   authDomain: "palaciodelanovia-98472.firebaseapp.com",
   projectId: "palaciodelanovia-98472",
   storageBucket: "palaciodelanovia-98472.appspot.com",
