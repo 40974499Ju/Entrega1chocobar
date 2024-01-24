@@ -10,11 +10,11 @@
 }
 
 .cardProducto img {
-    width: 100px;
+    width: 200px;
 }
 
 .btn {
-    background-color:rosybrown;
+    background-color: rosybrown;
     color: #FAFAFA;
     border-radius: 10px;
     border: none;
